@@ -1,0 +1,12 @@
+.paginator{
+    bottom: 20px;
+    position: absolute;    
+    right: 0px;
+}
+mat-card{
+    width: 50vw;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+}
