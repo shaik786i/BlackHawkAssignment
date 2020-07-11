@@ -1,8 +1,0 @@
-<div class="p-10">  
-        <mat-form-field > 
-            <input [disabled]="!isCheckDatefield" matInput [matDatepicker]="picker" placeholder="Select Date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>   
-          <mat-slide-toggle class="pl-10"  [(ngModel)]="isCheckDatefield">Toggle to enable or disable the picker</mat-slide-toggle> 
-</div>

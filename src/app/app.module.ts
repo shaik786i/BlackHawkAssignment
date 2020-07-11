@@ -1,5 +1,8 @@
+
+import { RouterModule } from '@angular/router';
+import { FlightsModule } from './flights/flights.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,18 +13,21 @@ import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
-import { DatePickerComponent } from './date-picker/date-picker.component';
 import {MatCardModule} from '@angular/material/card';
-import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MyserviceService } from './myservice.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import {MatTableModule} from '@angular/material/table';
+import { RecaptchaFormsModule,RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings, RecaptchaV3Module, RECAPTCHA_V3_SITE_KEY } from 'ng-recaptcha';
+// import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    DatePickerComponent,
-    ExpansionPanelComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,9 +43,20 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatCardModule,
     MatExpansionModule,
     MatSlideToggleModule,
-    MatPaginatorModule
-  ],
-  providers: [],
+    HttpClientModule,    
+    RecaptchaV3Module,
+    RecaptchaFormsModule,
+    RecaptchaModule,
+    MatTableModule
+        
+
+  ],  
+  providers: [MyserviceService,{
+    provide: RECAPTCHA_SETTINGS,
+    useValue: {
+      siteKey: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
+    } as RecaptchaSettings,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

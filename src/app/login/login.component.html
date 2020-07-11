@@ -1,0 +1,28 @@
+<div>
+    <h2>
+        Login Form
+    </h2>
+    <div>
+        <form>
+            <mat-form-field>
+                <input matInput type="text" [(ngModel)]="userName" placeholder="User Name" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <br>            
+            <mat-form-field>
+                <input matInput type="text" [(ngModel)]="passWord" placeholder="PassWord" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+
+            <button (click)="validateAndSignIn()">
+                Sign In
+            </button>
+        </form>
+        <div>
+            
+ 
+        </div>
+        {{message}}
+        <div *ngIf="checkCount()">
+            <re-captcha (resolved)="resolved($event)" siteKey="abcd"></re-captcha>
+        </div>
+        
+</div>
